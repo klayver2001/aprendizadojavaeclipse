@@ -1,4 +1,4 @@
-package condicionais;
+package op_logicas_condicionais_relacionais;
 
 
 public class PrimeiroClasseJava {
