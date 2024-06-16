@@ -52,7 +52,6 @@ public class SecretariaEscolaTesteGUI {
 		// Cria instâncias dos alunos
 		Aluno aluno245637 = new Aluno();
 		aluno245637.setNome("João");
-		aluno245637.setSobrenome("Vinicius Pereira");
 		aluno245637.setIdade(15);
 		aluno245637.setDataNascimento("20/03/2009");
 		aluno245637.setRegistroGeral("48.878");
@@ -64,7 +63,6 @@ public class SecretariaEscolaTesteGUI {
 
 		Aluno aluno245638 = new Aluno();
 		aluno245638.setNome("Maria");
-		aluno245638.setSobrenome("Fernanda Lima");
 		aluno245638.setIdade(16);
 		aluno245638.setDataNascimento("07/01/2008");
 		aluno245638.setRegistroGeral("39.458");
@@ -76,7 +74,6 @@ public class SecretariaEscolaTesteGUI {
 
 		Aluno aluno245639 = new Aluno();
 		aluno245639.setNome("Adriel");
-		aluno245639.setSobrenome("Benjamin Gomes Vieira");
 		aluno245639.setIdade(11);
 		aluno245639.setDataNascimento("10/04/2013");
 		aluno245639.setRegistroGeral("40.458");
@@ -93,9 +90,9 @@ public class SecretariaEscolaTesteGUI {
 
 		if (initialChoice == 0) { // "Dados de Alunos Matriculados" escolhido
 			// Lista de alunos
-			String[] alunoNames = { aluno245637.getNome() + " " + aluno245637.getSobrenome(),
-					aluno245638.getNome() + " " + aluno245638.getSobrenome(),
-					aluno245639.getNome() + " " + aluno245639.getSobrenome() };
+			String[] alunoNames = { aluno245637.getNome(),
+					aluno245638.getNome(),
+					aluno245639.getNome()};
 
 			// Escolha do aluno
 			String selectedAluno = (String) JOptionPane.showInputDialog(null, "Selecione um aluno",
@@ -104,17 +101,17 @@ public class SecretariaEscolaTesteGUI {
 			// Verifica qual aluno foi selecionado e exibe as informações
 			Aluno aluno = null;
 			if (selectedAluno != null) {
-				if (selectedAluno.equals(aluno245637.getNome() + " " + aluno245637.getSobrenome())) {
+				if (selectedAluno.equals(aluno245637.getNome())) {
 					aluno = aluno245637;
-				} else if (selectedAluno.equals(aluno245638.getNome() + " " + aluno245638.getSobrenome())) {
+				} else if (selectedAluno.equals(aluno245638.getNome())) {
 					aluno = aluno245638;
-				} else if (selectedAluno.equals(aluno245639.getNome() + " " + aluno245639.getSobrenome())) {
+				} else if (selectedAluno.equals(aluno245639.getNome())) {
 					aluno = aluno245639;
 				}
 
 				if (aluno != null) {
 					String message = "Informações do Aluno:\n" + "Nome: " + aluno.getNome() + "\n" + "Sobrenome: "
-							+ aluno.getSobrenome() + "\n" + "Idade: " + aluno.getIdade() + "\n" + "Data de Nascimento: "
+							+  "\n" + "Idade: " + aluno.getIdade() + "\n" + "Data de Nascimento: "
 							+ aluno.getDataNascimento() + "\n" + "Registro Geral: " + aluno.getRegistroGeral() + "\n"
 							+ "Número CPF: " + aluno.getNumeroCpf() + "\n" + "Nome da Mãe: " + aluno.getNomeMae() + "\n"
 							+ "Nome do Pai: " + aluno.getNomePai() + "\n" + "Matrícula ID: " + aluno.getMatriculaId()
@@ -144,7 +141,7 @@ public class SecretariaEscolaTesteGUI {
 
                         for (int i = 0; i < 4; i++) {
                             String input = JOptionPane.showInputDialog(null, "Digite a nota " + (i + 1) + " para "
-                                    + aluno.getNome() + " " + aluno.getSobrenome());
+                                    + aluno.getNome());
                             try {
                                 notas[i] = Double.parseDouble(input);
                             } catch (NumberFormatException e) {
@@ -163,7 +160,7 @@ public class SecretariaEscolaTesteGUI {
                     } else if (option == 1) { // "Exibir Média de Notas" escolhido
                         double media = aluno.getMediaNotas();
                         JOptionPane.showMessageDialog(null,
-                                "A média das notas de " + aluno.getNome() + " " + aluno.getSobrenome() + " é: " + media,
+                                "A média das notas de " + aluno.getNome() + " é: " + media,
                                 "Média de Notas", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }
@@ -179,11 +176,10 @@ public class SecretariaEscolaTesteGUI {
         Document document = new Document();
         try {
             PdfWriter.getInstance(document,
-                    new FileOutputStream(aluno.getNome() + "_" + aluno.getSobrenome() + ".pdf"));
+                    new FileOutputStream(aluno.getNome() + ".pdf"));
             document.open();
             document.add(new Paragraph("Informações do Aluno:"));
             document.add(new Paragraph("Nome: " + aluno.getNome()));
-            document.add(new Paragraph("Sobrenome: " + aluno.getSobrenome()));
             document.add(new Paragraph("Idade: " + aluno.getIdade()));
             document.add(new Paragraph("Data de Nascimento: " + aluno.getDataNascimento()));
             document.add(new Paragraph("Registro Geral: " + aluno.getRegistroGeral()));

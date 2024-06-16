@@ -9,7 +9,6 @@ public class SecretariaEscola {
 	public static void main(String[] args) {
 
 		String nome = JOptionPane.showInputDialog("Nome : ");
-		String sobrenome = JOptionPane.showInputDialog("Sobrenome : ");
 		String idade = JOptionPane.showInputDialog("Idade do Aluno : ");
 		String DataNascimento = JOptionPane.showInputDialog("Data de nascimento : ");
 		String RegistroGeral = JOptionPane.showInputDialog("Registro Geral : ");
@@ -26,7 +25,6 @@ public class SecretariaEscola {
 		// Cria instâncias dos alunos
 		Aluno aluno245637 = new Aluno();
 		aluno245637.setNome(nome);
-		aluno245637.setSobrenome(sobrenome);
 		aluno245637.setIdade(Integer.valueOf(idade));
 		aluno245637.setDataNascimento(DataNascimento);
 		aluno245637.setRegistroGeral(RegistroGeral);
@@ -45,7 +43,6 @@ public class SecretariaEscola {
 
 		Aluno aluno245638 = new Aluno();
 		aluno245638.setNome("Maria");
-		aluno245638.setSobrenome("Fernanda Lima");
 		aluno245638.setIdade(16);
 		aluno245638.setDataNascimento("07/01/2008");
 		aluno245638.setRegistroGeral("39.458");
@@ -57,7 +54,6 @@ public class SecretariaEscola {
 
 		Aluno aluno245639 = new Aluno();
 		aluno245639.setNome("Adriel");
-		aluno245639.setSobrenome("Benjamin Gomes Vieira");
 		aluno245639.setIdade(11);
 		aluno245639.setDataNascimento("10/04/2013");
 		aluno245639.setRegistroGeral("40.458");
@@ -73,7 +69,9 @@ public class SecretariaEscola {
 
 		// Exibir informações dos alunos
 		/*
-		 * exibirInformacoesAluno(aluno245637); exibirInformacoesAluno(aluno245638);
+		 * exibirInformacoesAluno(aluno245637); 
+		 * 
+		 * exibirInformacoesAluno(aluno245638);
 		 * exibirInformacoesAluno(aluno245639);
 		 */
 
@@ -107,6 +105,21 @@ public class SecretariaEscola {
 	 * new StringBuilder(); for (int i = 0; i < times; i++) { result.append(str); }
 	 * return result.toString(); }
 	 */
-	System.out.println(aluno245637);
+		
+		
+	/*
+	 * //Utilizando o método TOSTRING para retornar os valores
+	 * System.out.println(toString.aluno245637);
+	 */
+	
+		
+	// equals e hashcode no java
+	if (aluno245637.equals(aluno245638)) {
+		System.out.println("ERROR: Alunos são iguais !");
+	} else {
+		System.out.println("Alunos não são iguais...");
+	}
+	
+	
 	}
 }
