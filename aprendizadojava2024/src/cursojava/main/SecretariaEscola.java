@@ -2,6 +2,7 @@ package cursojava.main;
 
 import javax.swing.JOptionPane;
 import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
 
 public class SecretariaEscola {
 
@@ -16,16 +17,12 @@ public class SecretariaEscola {
 		String NomePai = JOptionPane.showInputDialog("Nome do Pai : ");
 		String MatriculaId = JOptionPane.showInputDialog("Número da Matrícula : ");
 		String DataMatricula = JOptionPane.showInputDialog("Data de Matrícula : ");
-		
-		String disciplina1 = JOptionPane.showInputDialog("Disciplina? ");
+
 		String nota1 = JOptionPane.showInputDialog("1º Nota: ");
-		String disciplina2 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota2 = JOptionPane.showInputDialog("2º Nota: ");
-		String disciplina3 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota3 = JOptionPane.showInputDialog("3º Nota: ");
-		String disciplina4 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota4 = JOptionPane.showInputDialog("4º Nota: ");
-		
+
 		// Cria instâncias dos alunos
 		Aluno aluno245637 = new Aluno();
 		aluno245637.setNome(nome);
@@ -37,19 +34,7 @@ public class SecretariaEscola {
 		aluno245637.setNomePai(NomePai);
 		aluno245637.setMatriculaId(MatriculaId);
 		aluno245637.setDataMatricula(DataMatricula);
-		
-		// Disciplina e notas aluno.245637
-		aluno245637.getDisciplina().setNota1(Double.parseDouble(nota1));
-		aluno245637.getDisciplina().setNota2(Double.parseDouble(nota2));
-		aluno245637.getDisciplina().setNota3(Double.parseDouble(nota3));
-		aluno245637.getDisciplina().setNota4(Double.parseDouble(nota4));
-		
-		aluno245637.getDisciplina().setDisciplina1(disciplina1);
-		aluno245637.getDisciplina().setDisciplina1(disciplina2);
-		aluno245637.getDisciplina().setDisciplina1(disciplina3);
-		aluno245637.getDisciplina().setDisciplina1(disciplina4);
-		
-			
+
 		/* Criaçã do aluno245638 */
 		Aluno aluno245638 = new Aluno();
 		aluno245638.setNome("Maria");
@@ -61,8 +46,6 @@ public class SecretariaEscola {
 		aluno245638.setNomePai("Antonio Severino Costa");
 		aluno245638.setMatriculaId("123464");
 		aluno245638.setDataMatricula("08/03/2024");
-		
-		
 
 		Aluno aluno245639 = new Aluno();
 		aluno245639.setNome("Adriel");
@@ -74,43 +57,63 @@ public class SecretariaEscola {
 		aluno245639.setNomePai("Francisco Ribeiro Vieira");
 		aluno245639.setMatriculaId("123478");
 		aluno245639.setDataMatricula("14/06/2024");
-		
 
-		
-		
+		Disciplina disciplina1 = new Disciplina();
+		disciplina1.setDisciplina("Banco de Dados");
+		disciplina1.setNota(Double.parseDouble(nota1));
+
+		aluno245637.getDisciplinas().add(disciplina1);
+
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Java");
+		disciplina2.setNota(Double.parseDouble(nota2));
+
+		aluno245637.getDisciplinas().add(disciplina2);
+
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina("IOT");
+		disciplina3.setNota(Double.parseDouble(nota3));
+
+		aluno245637.getDisciplinas().add(disciplina3);
+
+		Disciplina disciplina4 = new Disciplina();
+		disciplina4.setDisciplina("Gestão de TI");
+		disciplina4.setNota(Double.parseDouble(nota4));
+
+		aluno245637.getDisciplinas().add(disciplina4);
+
 		// Exibir informações dos alunos
-		exibirInformacoesAluno(aluno245637); 
+		exibirInformacoesAluno(aluno245637);
 		System.out.println();
-		exibirInformacoesAluno(aluno245638);
-		System.out.println();
-		exibirInformacoesAluno(aluno245639);
-		System.out.println();	
-			
+
 		// equals e hashcode no java
 		if (aluno245637.equals(aluno245638)) {
 			System.out.println("ERROR: Alunos são iguais !");
 		} else {
 			System.out.println("Alunos não são iguais...");
 		}
-		/*Utilizando o método TOSTRING para retornar os valores
-		System.out.println(aluno245637);*/
+
+		/*
+		 * Utilizando o método TOSTRING para retornar os valores
+		 * System.out.println(aluno245637);
+		 */
 
 	}
 
-	
-	  private static void exibirInformacoesAluno(Aluno aluno) { 
-	  System.out.println("Informações do Aluno:"); System.out.println("Nome: " +aluno.getNome()); 
-	  System.out.println("Idade: " + aluno.getIdade());
-	  System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
-	  System.out.println("Registro Geral: " + aluno.getRegistroGeral());
-	  System.out.println("Número CPF: " + aluno.getNumeroCpf());
-	  System.out.println("Nome da Mãe: " + aluno.getNomeMae());
-	  System.out.println("Nome do Pai: " + aluno.getNomePai());
-	  System.out.println("Matrícula ID: " + aluno.getMatriculaId());
-	  System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
-	  // Chama o método de Media de notas que são atributos de aluno.java
-	  System.out.println("A média do aluno é: " + aluno.getMediaNotas()); 
-	  // Chama o método getAlunoAprovado() 
-	  System.out.println("Resultado = " + (aluno.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
-	  }
+	private static void exibirInformacoesAluno(Aluno aluno) {
+		System.out.println("Informações do Aluno:");
+		System.out.println("Nome: " + aluno.getNome());
+		System.out.println("Idade: " + aluno.getIdade());
+		System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+		System.out.println("Registro Geral: " + aluno.getRegistroGeral());
+		System.out.println("Número CPF: " + aluno.getNumeroCpf());
+		System.out.println("Nome da Mãe: " + aluno.getNomeMae());
+		System.out.println("Nome do Pai: " + aluno.getNomePai());
+		System.out.println("Matrícula ID: " + aluno.getMatriculaId());
+		System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
+		// Chama o método de Media de notas que são atributos de aluno.java
+		System.out.println("A média do aluno é: " + aluno.getMediaNotas());
+		// Chama o método getAlunoAprovado()
+		System.out.println("Resultado = " + (aluno.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+	}
 }

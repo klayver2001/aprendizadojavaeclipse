@@ -1,4 +1,9 @@
 package cursojava.classes;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 // Está é nossa classe que representa Aluno
  
 /**
@@ -19,20 +24,21 @@ public class Aluno {
 	private String dataMatricula;
 	private String cursoMatriculado;
 	
-	private Disciplina disciplina = new Disciplina();
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
+	/* Métodos SETTERS & GETTERS dos Objetos
+	SET Adiciona ou recebe dados para os atribútos
+	GET Resgata ou Obtém o valor do atribúto
+	 */
 	
-
-	/* Métodos SETTERS & GETTERS dos Objetos */
-	// SET Adiciona ou recebe dados para os atribútos
-	// GET Resgata ou Obtém o valor do atribúto
-
-	public Disciplina getDisciplina() {
-		return disciplina;
+	
+	
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
 
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 	// Recebe dados
@@ -120,7 +126,11 @@ public class Aluno {
 
 	/* Retorna média de notas do aluno, um método não é chamada de atributo */
 	public double getMediaNotas() {
-		return (disciplina.getNota1() + disciplina.getNota2() +disciplina.getNota3() + disciplina.getNota4()) / 4;
+		double somaNotas = 0.0;
+		for (Disciplina disciplina : disciplinas) {
+			somaNotas += disciplina.getNota();
+		}
+		return somaNotas / disciplinas.size();
 	}
 
 	public boolean getAlunoAprovado() {
@@ -130,6 +140,14 @@ public class Aluno {
 		} else {
 			return false;
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", matriculaId=" + matriculaId + ", dataMatricula=" + dataMatricula + ", cursoMatriculado="
+				+ cursoMatriculado + "]";
 	}
 
 
@@ -158,13 +176,7 @@ public class Aluno {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
-				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", matriculaId=" + matriculaId + ", dataMatricula=" + dataMatricula + ", cursoMatriculado="
-				+ cursoMatriculado + ", disciplina=" + disciplina + "]";
-	}
+	
 	
 	
 	

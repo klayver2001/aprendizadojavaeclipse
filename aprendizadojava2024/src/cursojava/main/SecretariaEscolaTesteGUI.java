@@ -151,10 +151,6 @@ public class SecretariaEscolaTesteGUI {
                             }
                         }
 
-                        aluno.setNota1(notas[0]);
-                        aluno.setNota2(notas[1]);
-                        aluno.setNota3(notas[2]);
-                        aluno.setNota4(notas[3]);
                         JOptionPane.showMessageDialog(null, "Notas inseridas com sucesso!", "Sucesso",
                                 JOptionPane.INFORMATION_MESSAGE);
                     } else if (option == 1) { // "Exibir Média de Notas" escolhido
