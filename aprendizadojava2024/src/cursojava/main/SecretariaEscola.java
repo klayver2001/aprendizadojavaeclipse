@@ -1,7 +1,6 @@
 package cursojava.main;
 
 import javax.swing.JOptionPane;
-
 import cursojava.classes.Aluno;
 
 public class SecretariaEscola {
@@ -17,9 +16,14 @@ public class SecretariaEscola {
 		String NomePai = JOptionPane.showInputDialog("Nome do Pai : ");
 		String MatriculaId = JOptionPane.showInputDialog("Número da Matrícula : ");
 		String DataMatricula = JOptionPane.showInputDialog("Data de Matrícula : ");
+		
+		String disciplina1 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota1 = JOptionPane.showInputDialog("1º Nota: ");
+		String disciplina2 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota2 = JOptionPane.showInputDialog("2º Nota: ");
+		String disciplina3 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota3 = JOptionPane.showInputDialog("3º Nota: ");
+		String disciplina4 = JOptionPane.showInputDialog("Disciplina? ");
 		String nota4 = JOptionPane.showInputDialog("4º Nota: ");
 		
 		// Cria instâncias dos alunos
@@ -33,14 +37,20 @@ public class SecretariaEscola {
 		aluno245637.setNomePai(NomePai);
 		aluno245637.setMatriculaId(MatriculaId);
 		aluno245637.setDataMatricula(DataMatricula);
-		aluno245637.setNota1(Double.parseDouble(nota1));
-		aluno245637.setNota2(Double.parseDouble(nota2));
-		aluno245637.setNota3(Double.parseDouble(nota3));
-		aluno245637.setNota4(Double.parseDouble(nota4));
 		
+		// Disciplina e notas aluno.245637
+		aluno245637.getDisciplina().setNota1(Double.parseDouble(nota1));
+		aluno245637.getDisciplina().setNota2(Double.parseDouble(nota2));
+		aluno245637.getDisciplina().setNota3(Double.parseDouble(nota3));
+		aluno245637.getDisciplina().setNota4(Double.parseDouble(nota4));
 		
+		aluno245637.getDisciplina().setDisciplina1(disciplina1);
+		aluno245637.getDisciplina().setDisciplina1(disciplina2);
+		aluno245637.getDisciplina().setDisciplina1(disciplina3);
+		aluno245637.getDisciplina().setDisciplina1(disciplina4);
 		
-
+			
+		/* Criaçã do aluno245638 */
 		Aluno aluno245638 = new Aluno();
 		aluno245638.setNome("Maria");
 		aluno245638.setIdade(16);
@@ -51,6 +61,8 @@ public class SecretariaEscola {
 		aluno245638.setNomePai("Antonio Severino Costa");
 		aluno245638.setMatriculaId("123464");
 		aluno245638.setDataMatricula("08/03/2024");
+		
+		
 
 		Aluno aluno245639 = new Aluno();
 		aluno245639.setNome("Adriel");
@@ -62,64 +74,43 @@ public class SecretariaEscola {
 		aluno245639.setNomePai("Francisco Ribeiro Vieira");
 		aluno245639.setMatriculaId("123478");
 		aluno245639.setDataMatricula("14/06/2024");
-		aluno245639.setNota1(90);
-		aluno245639.setNota2(70);
-		aluno245639.setNota3(78);
-		aluno245639.setNota4(55);
+		
 
+		
+		
 		// Exibir informações dos alunos
-		/*
-		 * exibirInformacoesAluno(aluno245637); 
-		 * 
-		 * exibirInformacoesAluno(aluno245638);
-		 * exibirInformacoesAluno(aluno245639);
-		 */
+		exibirInformacoesAluno(aluno245637); 
+		System.out.println();
+		exibirInformacoesAluno(aluno245638);
+		System.out.println();
+		exibirInformacoesAluno(aluno245639);
+		System.out.println();	
+			
+		// equals e hashcode no java
+		if (aluno245637.equals(aluno245638)) {
+			System.out.println("ERROR: Alunos são iguais !");
+		} else {
+			System.out.println("Alunos não são iguais...");
+		}
+		/*Utilizando o método TOSTRING para retornar os valores
+		System.out.println(aluno245637);*/
 
-	
-
-	/*
-	 * private static void exibirInformacoesAluno(Aluno aluno) {
-	 * System.out.println("Informações do Aluno:"); System.out.println("Nome: " +
-	 * aluno.getNome()); System.out.println("Sobrenome: " + aluno.getSobrenome());
-	 * System.out.println("Idade: " + aluno.getIdade());
-	 * System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
-	 * System.out.println("Registro Geral: " + aluno.getRegistroGeral());
-	 * System.out.println("Número CPF: " + aluno.getNumeroCpf());
-	 * System.out.println("Nome da Mãe: " + aluno.getNomeMae());
-	 * System.out.println("Nome do Pai: " + aluno.getNomePai());
-	 * System.out.println("Matrícula ID: " + aluno.getMatriculaId());
-	 * System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
-	 * System.out.println("Nota 1: " + aluno.getNota1());
-	 * System.out.println("Nota 2: " + aluno.getNota2());
-	 * System.out.println("Nota 3: " + aluno.getNota3());
-	 * System.out.println("Nota 4: " + aluno.getNota4()); System.out.println(); //
-	 * Chama o método de Media de notas que são atributos de aluno.java
-	 * System.out.println("A média do aluno é: " + aluno.getMediaNotas()); // Chama
-	 * o método getAlunoAprovado() System.out.println("Resultado = " +
-	 * (aluno.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
-	 * System.out.println(repeat("-", 40)); }
-	 */
-
-	/*
-	 * private static String repeat(String str, int times) { StringBuilder result =
-	 * new StringBuilder(); for (int i = 0; i < times; i++) { result.append(str); }
-	 * return result.toString(); }
-	 */
-		
-		
-	/*
-	 * //Utilizando o método TOSTRING para retornar os valores
-	 * System.out.println(toString.aluno245637);
-	 */
-	
-		
-	// equals e hashcode no java
-	if (aluno245637.equals(aluno245638)) {
-		System.out.println("ERROR: Alunos são iguais !");
-	} else {
-		System.out.println("Alunos não são iguais...");
 	}
+
 	
-	
-	}
+	  private static void exibirInformacoesAluno(Aluno aluno) { 
+	  System.out.println("Informações do Aluno:"); System.out.println("Nome: " +aluno.getNome()); 
+	  System.out.println("Idade: " + aluno.getIdade());
+	  System.out.println("Data de Nascimento: " + aluno.getDataNascimento());
+	  System.out.println("Registro Geral: " + aluno.getRegistroGeral());
+	  System.out.println("Número CPF: " + aluno.getNumeroCpf());
+	  System.out.println("Nome da Mãe: " + aluno.getNomeMae());
+	  System.out.println("Nome do Pai: " + aluno.getNomePai());
+	  System.out.println("Matrícula ID: " + aluno.getMatriculaId());
+	  System.out.println("Data de Matrícula: " + aluno.getDataMatricula());
+	  // Chama o método de Media de notas que são atributos de aluno.java
+	  System.out.println("A média do aluno é: " + aluno.getMediaNotas()); 
+	  // Chama o método getAlunoAprovado() 
+	  System.out.println("Resultado = " + (aluno.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+	  }
 }

@@ -1,6 +1,6 @@
 package cursojava.classes;
 // Está é nossa classe que representa Aluno
-
+ 
 /**
  * @author SuperAdminTwo
  */
@@ -18,15 +18,22 @@ public class Aluno {
 	private String matriculaId;
 	private String dataMatricula;
 	private String cursoMatriculado;
+	
+	private Disciplina disciplina = new Disciplina();
 
-	private double nota1;
-	private double nota2;
-	private double nota3;
-	private double nota4;
+	
 
 	/* Métodos SETTERS & GETTERS dos Objetos */
 	// SET Adiciona ou recebe dados para os atribútos
 	// GET Resgata ou Obtém o valor do atribúto
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
 
 	// Recebe dados
 	public void setNome(String nome) {
@@ -110,41 +117,10 @@ public class Aluno {
 		this.cursoMatriculado = cursoMatriculado;
 	}
 
-	public double getNota1() {
-		return nota1;
-	}
-
-	public void setNota1(double nota1) {
-		this.nota1 = nota1;
-	}
-
-	public double getNota2() {
-		return nota2;
-	}
-
-	public void setNota2(double nota2) {
-		this.nota2 = nota2;
-	}
-
-	public double getNota3() {
-		return nota3;
-	}
-
-	public void setNota3(double nota3) {
-		this.nota3 = nota3;
-	}
-
-	public double getNota4() {
-		return nota4;
-	}
-
-	public void setNota4(double nota4) {
-		this.nota4 = nota4;
-	}
 
 	/* Retorna média de notas do aluno, um método não é chamada de atributo */
 	public double getMediaNotas() {
-		return (nota1 + nota2 + nota3 + nota4) / 4;
+		return (disciplina.getNota1() + disciplina.getNota2() +disciplina.getNota3() + disciplina.getNota4()) / 4;
 	}
 
 	public boolean getAlunoAprovado() {
@@ -156,16 +132,6 @@ public class Aluno {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento="
-				+ dataNascimento + ", registroGeral=" + registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae="
-				+ nomeMae + ", nomePai=" + nomePai + ", matriculaId=" + matriculaId + ", dataMatricula=" + dataMatricula
-				+ ", cursoMatriculado=" + cursoMatriculado + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3="
-				+ nota3 + ", nota4=" + nota4 + ", getNota1()=" + getNota1() + ", getNota2()=" + getNota2()
-				+ ", getNota3()=" + getNota3() + ", getNota4()=" + getNota4() + ", getMediaNotas()=" + getMediaNotas()
-				+ ", getAlunoAprovado()=" + getAlunoAprovado() + "]";
-	}
 
 	@Override
 	public int hashCode() {
@@ -191,6 +157,17 @@ public class Aluno {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", matriculaId=" + matriculaId + ", dataMatricula=" + dataMatricula + ", cursoMatriculado="
+				+ cursoMatriculado + ", disciplina=" + disciplina + "]";
+	}
+	
+	
+	
 	
 	
 	
