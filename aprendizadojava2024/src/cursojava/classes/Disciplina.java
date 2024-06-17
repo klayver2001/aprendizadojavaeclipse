@@ -2,25 +2,20 @@ package cursojava.classes;
 
 public class Disciplina {
 
-	private double nota;
 	private String disciplina;
-
-	public double getNota() {
-		return nota;
-	}
-
-	public void setNota(double nota) {
-		this.nota = nota;
-	}
-
+	private double nota;
 	public String getDisciplina() {
 		return disciplina;
 	}
-
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
 	}
-
+	public double getNota() {
+		return nota;
+	}
+	public void setNota(double nota) {
+		this.nota = nota;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -31,7 +26,6 @@ public class Disciplina {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -50,10 +44,9 @@ public class Disciplina {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "Disciplina [nota=" + nota + ", disciplina=" + disciplina + "]";
+		return "Disciplina [disciplina=" + disciplina + ", nota=" + nota + "]";
 	}
-
+ 
 }

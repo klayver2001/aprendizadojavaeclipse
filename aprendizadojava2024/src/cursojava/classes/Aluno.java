@@ -1,7 +1,6 @@
 package cursojava.classes;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 // Está é nossa classe que representa Aluno
@@ -142,14 +141,16 @@ public class Aluno {
 		}
 	}
 	
+
+
+
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
 				+ ", matriculaId=" + matriculaId + ", dataMatricula=" + dataMatricula + ", cursoMatriculado="
-				+ cursoMatriculado + "]";
+				+ cursoMatriculado + ", disciplinas=" + disciplinas + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
