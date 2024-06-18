@@ -15,7 +15,7 @@ public class SecretariaEscola {
 
 		for (int quantidade = 1; quantidade <= 2; quantidade++) {
 
-			String nome = JOptionPane.showInputDialog("Nome do aluno : "+quantidade+" ?");
+			String nome = JOptionPane.showInputDialog("Nome do aluno : " + quantidade + " ?");
 			String idade = JOptionPane.showInputDialog("Idade do Aluno : ");
 			String DataNascimento = JOptionPane.showInputDialog("Data de nascimento : ");
 			String RegistroGeral = JOptionPane.showInputDialog("Registro Geral : ");
@@ -57,15 +57,30 @@ public class SecretariaEscola {
 				}
 			}
 			alunos.add(aluno1);
-			
 
 		}
-		for (Aluno aluno: alunos) {
-			System.out.println(aluno); /* Descrição do objeto na memória */
-			System.out.println("Média do aluno "+aluno.getMediaNotas());
-			System.out.println("Resultado "+ aluno.getAlunoAprovado2());
-			System.out.println("----------------------------------------------------------");
+		for (Aluno aluno : alunos) {
+			if (aluno.getNome().equalsIgnoreCase("alex")) {
+				alunos.remove(aluno);
+				break;
+			} else {
+				System.out.println(aluno); /* Descrição do objeto na memória */
+				System.out.println("Média do aluno " + aluno.getMediaNotas());
+				System.out.println("Resultado " + aluno.getAlunoAprovado2());
+				System.out.println("----------------------------------------------------------");
+			}
 		}
-		
+		for (Aluno aluno : alunos) {
+			System.out.println("Alunos que sobraram na lista !");
+			System.out.println(aluno.getNome());
+			System.out.println("Suas disciplinas são :");
+			
+			for (Disciplina disciplina : aluno.getDisciplinas()) {
+				System.out.println(disciplina.getDisciplina());
+			}
+			
+			
+		}
+
 	}
 }
